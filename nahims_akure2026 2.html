@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>NAHIMS SOUTHWEST - AKURE 2026 Convention</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{--primary:#006400;--primary-dark:#004d00;--gold:#D4AF37;--gold-light:#F4E4BC;--orange:#FF8C00;--white:#FFFFFF;--off-white:#F8FAF8;--gray-50:#F9FAFB;--gray-100:#F3F4F6;--gray-200:#E5E7EB;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151;--gray-900:#111827;--red:#DC2626;--green:#059669;--shadow:0 4px 6px -1px rgba(0,0,0,0.1);--shadow-lg:0 10px 15px -3px rgba(0,0,0,0.1);--shadow-xl:0 20px 25px -5px rgba(0,0,0,0.1);}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--off-white);color:var(--gray-900);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideInRight{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.animate-fadeInUp{animation:fadeInUp 0.6s ease-out forwards}
+.landing-page{min-height:100vh;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 50%,#003300 100%);position:relative;overflow:hidden}
+.landing-page::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(212,175,55,0.1) 0%,transparent 70%);animation:rotate 60s linear infinite}
+.landing-content{position:relative;z-index:10;padding:20px;max-width:480px;margin:0 auto}
+.landing-header{text-align:center;padding:30px 0 20px}
+.logo-container{width:120px;height:120px;margin:0 auto 20px;background:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(212,175,55,0.3);border:4px solid var(--gold);animation:float 3s ease-in-out infinite}
+.logo-text{font-size:14px;font-weight:800;color:var(--primary);text-align:center;line-height:1.2}
+.landing-title{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:var(--white);text-align:center;line-height:1.2;margin-bottom:8px;text-shadow:2px 2px 4px rgba(0,0,0,0.3)}
+.landing-subtitle{font-size:18px;color:var(--gold);text-align:center;font-weight:700;margin-bottom:20px;letter-spacing:1px}
+.theme-badge{background:linear-gradient(135deg,var(--gold),#B8941F);color:var(--primary-dark);padding:12px 20px;border-radius:50px;font-size:14px;font-weight:700;text-align:center;margin:0 auto 20px;max-width:90%;box-shadow:0 4px 15px rgba(212,175,55,0.4)}
+.countdown-container{background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:20px;padding:20px;margin-bottom:20px;border:1px solid rgba(255,255,255,0.2)}
+.countdown-label{color:var(--gold);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:2px;text-align:center;margin-bottom:12px}
+.countdown-timer{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.countdown-item{background:rgba(0,0,0,0.3);border-radius:12px;padding:12px 8px;text-align:center;border:1px solid rgba(212,175,55,0.3)}
+.countdown-number{font-size:28px;font-weight:900;color:var(--white);line-height:1}
+.countdown-unit{font-size:10px;color:var(--gold);text-transform:uppercase;font-weight:600;margin-top:4px}
+.hero-text{font-size:20px;font-weight:800;color:var(--white);text-align:center;margin:20px 0;line-height:1.4;text-shadow:1px 1px 2px rgba(0,0,0,0.3)}
+.event-details{background:rgba(255,255,255,0.95);border-radius:20px;padding:20px;margin-bottom:20px;box-shadow:var(--shadow-xl)}
+.detail-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--gray-200)}
+.detail-row:last-child{border-bottom:none}
+.detail-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:18px;flex-shrink:0}
+.detail-content h4{font-size:14px;font-weight:700;color:var(--gray-900);margin-bottom:2px}
+.detail-content p{font-size:13px;color:var(--gray-500);line-height:1.4}
+.payment-box{background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:20px;padding:20px;margin-bottom:20px;border:2px solid var(--gold);position:relative;overflow:hidden}
+.payment-title{color:var(--gold);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.bank-detail{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.1)}
+.bank-detail:last-child{border-bottom:none}
+.bank-label{color:var(--gray-300);font-size:13px}
+.bank-value{color:var(--white);font-size:14px;font-weight:700;font-family:'Courier New',monospace}
+.copy-btn{background:var(--gold);color:var(--primary-dark);border:none;padding:4px 12px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;margin-left:8px}
+.cta-buttons{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:18px 24px;border-radius:16px;font-size:16px;font-weight:700;border:none;cursor:pointer;transition:all 0.3s ease;text-decoration:none;-webkit-appearance:none;width:100%}
+.btn-primary{background:linear-gradient(135deg,var(--gold),#B8941F);color:var(--primary-dark);box-shadow:0 8px 25px rgba(212,175,55,0.4)}
+.btn-primary:active{transform:scale(0.98)}
+.btn-secondary{background:rgba(255,255,255,0.15);color:var(--white);border:2px solid rgba(255,255,255,0.3);backdrop-filter:blur(10px)}
+.btn-admin{background:linear-gradient(135deg,var(--orange),#E67E00);color:var(--white);box-shadow:0 8px 25px rgba(255,140,0,0.4)}
+.features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px}
+.feature-card{background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:16px;padding:16px;text-align:center;border:1px solid rgba(255,255,255,0.2)}
+.feature-icon{font-size:32px;margin-bottom:8px}
+.feature-title{color:var(--white);font-size:13px;font-weight:700}
+.feature-desc{color:var(--gray-300);font-size:11px;margin-top:4px}
+.login-page{min-height:100vh;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);display:flex;align-items:center;justify-content:center;padding:20px}
+.login-card{background:var(--white);border-radius:24px;padding:40px 30px;width:100%;max-width:400px;box-shadow:var(--shadow-xl);animation:fadeInUp 0.6s ease-out}
+.login-logo{width:80px;height:80px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:20px;margin:0 auto 24px;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:32px;font-weight:900}
+.login-title{font-size:24px;font-weight:800;color:var(--gray-900);text-align:center;margin-bottom:8px}
+.login-subtitle{font-size:14px;color:var(--gray-500);text-align:center;margin-bottom:32px}
+.login-error{background:#FEE2E2;color:var(--red);padding:12px;border-radius:8px;font-size:13px;font-weight:600;text-align:center;margin-bottom:16px;display:none}
+.form-group{margin-bottom:20px}
+.form-label{display:block;font-size:13px;font-weight:600;color:var(--gray-700);margin-bottom:6px}
+.form-label .required{color:var(--red)}
+.form-input,.form-select{width:100%;padding:14px 16px;border:2px solid var(--gray-200);border-radius:12px;font-size:15px;font-family:inherit;background:var(--white);transition:all 0.3s ease;-webkit-appearance:none}
+.form-input:focus,.form-select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(0,100,0,0.1)}
+.form-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
+.file-upload{position:relative}
+.file-input{position:absolute;opacity:0;width:100%;height:100%;cursor:pointer}
+.file-label{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;border:2px dashed var(--gray-300);border-radius:12px;background:var(--gray-50);transition:all 0.3s ease;cursor:pointer}
+.file-label:hover{border-color:var(--primary);background:rgba(0,100,0,0.05)}
+.file-icon{font-size:32px;margin-bottom:8px}
+.file-text{font-size:14px;font-weight:600;color:var(--gray-700)}
+.file-hint{font-size:12px;color:var(--gray-400);margin-top:4px}
+.photo-preview{width:120px;height:120px;border-radius:50%;object-fit:cover;border:4px solid var(--gold);margin:0 auto 16px;display:none}
+.photo-preview.show{display:block}
+.submit-btn{width:100%;padding:18px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:var(--white);border:none;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.3s ease;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:10px}
+.submit-btn:active{transform:scale(0.98)}
+.dashboard{display:none;min-height:100vh;background:var(--off-white)}
+.dash-header{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:var(--white);padding:20px;position:sticky;top:0;z-index:100;box-shadow:var(--shadow-lg)}
+.dash-header-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.dash-title{font-size:18px;font-weight:800}
+.dash-menu-btn{background:rgba(255,255,255,0.2);border:none;color:var(--white);width:40px;height:40px;border-radius:10px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.dash-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.dash-tabs::-webkit-scrollbar{display:none}
+.dash-tab{padding:8px 16px;background:rgba(255,255,255,0.15);border:none;color:var(--white);border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all 0.3s ease}
+.dash-tab.active{background:var(--gold);color:var(--primary-dark)}
+.dash-content{padding:20px;max-width:1200px;margin:0 auto}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:24px}
+.stat-card{background:var(--white);border-radius:16px;padding:20px;box-shadow:var(--shadow);position:relative;overflow:hidden;animation:fadeInUp 0.5s ease-out forwards}
+.stat-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(to bottom,var(--gold),var(--orange))}
+.stat-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:12px}
+.stat-icon.green{background:#D1FAE5}
+.stat-icon.blue{background:#DBEAFE}
+.stat-icon.orange{background:#FED7AA}
+.stat-icon.purple{background:#E9D5FF}
+.stat-value{font-size:28px;font-weight:900;color:var(--gray-900);line-height:1;margin-bottom:4px}
+.stat-label{font-size:12px;color:var(--gray-500);font-weight:600}
+.section-card{background:var(--white);border-radius:20px;padding:24px;margin-bottom:20px;box-shadow:var(--shadow);animation:fadeInUp 0.6s ease-out}
+.section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.section-title{font-size:18px;font-weight:800;color:var(--gray-900)}
+.section-action{background:var(--gray-100);border:none;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;color:var(--gray-700);cursor:pointer}
+.filter-bar{display:flex;gap:10px;margin-bottom:20px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+.filter-btn{padding:8px 16px;background:var(--gray-100);border:none;border-radius:20px;font-size:13px;font-weight:600;color:var(--gray-500);cursor:pointer;white-space:nowrap;transition:all 0.3s ease}
+.filter-btn.active{background:var(--primary);color:var(--white)}
+.search-box{position:relative;margin-bottom:16px}
+.search-input{width:100%;padding:14px 16px 14px 44px;border:2px solid var(--gray-200);border-radius:12px;font-size:15px;font-family:inherit;-webkit-appearance:none}
+.search-input:focus{outline:none;border-color:var(--primary)}
+.search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:18px;color:var(--gray-400)}
+.reg-table-container{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:12px;border:1px solid var(--gray-200)}
+.reg-table{width:100%;min-width:800px;border-collapse:collapse;font-size:14px}
+.reg-table th{background:var(--gray-100);padding:12px 16px;text-align:left;font-size:12px;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap}
+.reg-table td{padding:14px 16px;border-bottom:1px solid var(--gray-200);vertical-align:middle}
+.reg-table tr:hover{background:var(--gray-50)}
+.reg-table tr:last-child td{border-bottom:none}
+.reg-name{font-weight:700;color:var(--gray-900)}
+.reg-school{font-size:12px;color:var(--gray-500)}
+.reg-no{font-family:'Courier New',monospace;font-weight:800;color:var(--primary);font-size:14px}
+.status-badge{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase}
+.status-pending{background:#FEF3C7;color:#92400E}
+.status-confirmed{background:#D1FAE5;color:#065F46}
+.status-paid{background:#DBEAFE;color:#1E40AF}
+.status-exempt{background:#E9D5FF;color:#6B21A8}
+.action-btns{display:flex;gap:6px}
+.action-btn{padding:6px 12px;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:all 0.2s}
+.action-btn.approve{background:var(--green);color:white}
+.action-btn.view{background:var(--gray-100);color:var(--gray-700)}
+.action-btn.delete{background:#FEE2E2;color:var(--red)}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);z-index:1000;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.show{display:flex}
+.modal{background:var(--white);border-radius:24px;width:100%;max-width:500px;max-height:90vh;overflow-y:auto;animation:fadeInUp 0.3s ease-out;-webkit-overflow-scrolling:touch}
+.modal-header{padding:24px 24px 0;display:flex;justify-content:space-between;align-items:center}
+.modal-title{font-size:20px;font-weight:800}
+.modal-close{background:var(--gray-100);border:none;width:36px;height:36px;border-radius:10px;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.modal-body{padding:20px 24px}
+.modal-footer{padding:0 24px 24px;display:flex;gap:10px}
+.modal-btn{flex:1;padding:14px;border-radius:12px;font-size:15px;font-weight:700;border:none;cursor:pointer}
+.modal-btn.primary{background:var(--primary);color:white}
+.modal-btn.secondary{background:var(--gray-100);color:var(--gray-700)}
+.slip-preview{background:linear-gradient(135deg,var(--gold-light),#FFF8E7);border-radius:16px;padding:24px;border:2px solid var(--gold);text-align:center;margin-bottom:20px}
+.slip-header{font-size:14px;font-weight:800;color:var(--primary);margin-bottom:16px;text-transform:uppercase;letter-spacing:1px}
+.slip-photo{width:100px;height:100px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);margin:0 auto 12px}
+.slip-regno{font-size:28px;font-weight:900;color:var(--primary);font-family:'Courier New',monospace;margin-bottom:8px}
+.slip-name{font-size:18px;font-weight:700;color:var(--gray-900);margin-bottom:4px}
+.slip-school{font-size:14px;color:var(--gray-500);margin-bottom:16px}
+.slip-details{display:grid;grid-template-columns:1fr 1fr;gap:8px;text-align:left;font-size:12px}
+.slip-detail{background:rgba(255,255,255,0.8);padding:8px;border-radius:8px}
+.slip-detail-label{color:var(--gray-500);font-size:10px;text-transform:uppercase}
+.slip-detail-value{color:var(--gray-900);font-weight:700}
+.toast-container{position:fixed;top:20px;right:20px;left:20px;z-index:2000;display:flex;flex-direction:column;gap:10px;pointer-events:none}
+.toast{background:var(--gray-900);color:var(--white);padding:14px 20px;border-radius:12px;font-size:14px;font-weight:600;box-shadow:var(--shadow-xl);animation:slideInRight 0.3s ease-out;display:flex;align-items:center;gap:10px;pointer-events:all}
+.toast.success{background:var(--green)}
+.toast.error{background:var(--red)}
+.loading-overlay{display:none;position:fixed;inset:0;background:rgba(255,255,255,0.9);z-index:3000;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+.loading-overlay.show{display:flex}
+.spinner{width:48px;height:48px;border:4px solid var(--gray-200);border-top-color:var(--primary);border-radius:50%;animation:rotate 1s linear infinite}
+.loading-text{font-size:14px;font-weight:600;color:var(--gray-700)}
+.verify-page{display:none;min-height:100vh;background:var(--off-white);align-items:center;justify-content:center;padding:20px}
+.verify-card{background:var(--white);border-radius:24px;padding:40px 30px;width:100%;max-width:400px;text-align:center;box-shadow:var(--shadow-xl)}
+.verify-status{width:80px;height:80px;border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:40px}
+.verify-status.valid{background:#D1FAE5}
+.verify-status.invalid{background:#FEE2E2}
+.verify-title{font-size:24px;font-weight:800;margin-bottom:8px}
+.verify-title.valid{color:var(--green)}
+.verify-title.invalid{color:var(--red)}
+.page{display:none}
+.page.active{display:block}
+.school-item{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--gray-200)}
+.school-item:last-child{border-bottom:none}
+.school-info h4{font-size:14px;font-weight:700;color:var(--gray-900)}
+.school-info p{font-size:12px;color:var(--gray-500)}
+.school-stats{text-align:right}
+.school-count{font-size:18px;font-weight:900;color:var(--primary)}
+.school-amount{font-size:12px;color:var(--gray-500);font-weight:600}
+.empty-state{text-align:center;padding:40px 20px}
+.empty-icon{font-size:48px;margin-bottom:12px}
+.empty-title{font-size:16px;font-weight:700;color:var(--gray-700);margin-bottom:4px}
+.empty-desc{font-size:14px;color:var(--gray-500)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+@media(min-width:768px){.stats-grid{grid-template-columns:repeat(4,1fr)}.features-grid{grid-template-columns:repeat(3,1fr)}.landing-title{font-size:42px}}
+@media print{.no-print{display:none!important}body{background:white}}
+</style>
+</head>
+<body>
+
+<!-- LANDING PAGE -->
+<div id="landingPage" class="page active">
+<div class="landing-page">
+<div class="landing-content">
+<div class="landing-header animate-fadeInUp">
+<div class="logo-container"><div class="logo-text">NAHIMS<br>SW</div></div>
+<h1 class="landing-title">13th Annual Scientific Conference</h1>
+<p class="landing-subtitle">CONFERENCE / CONVENTION</p>
+<div class="theme-badge">KNOWING AND DOING: Equipping for the Future</div>
+</div>
+<div class="countdown-container animate-fadeInUp" style="animation-delay:0.1s">
+<div class="countdown-label">Countdown to June 3, 2026</div>
+<div class="countdown-timer" id="countdown">
+<div class="countdown-item"><div class="countdown-number" id="days">00</div><div class="countdown-unit">Days</div></div>
+<div class="countdown-item"><div class="countdown-number" id="hours">00</div><div class="countdown-unit">Hours</div></div>
+<div class="countdown-item"><div class="countdown-number" id="minutes">00</div><div class="countdown-unit">Mins</div></div>
+<div class="countdown-item"><div class="countdown-number" id="seconds">00</div><div class="countdown-unit">Secs</div></div>
+</div>
+</div>
+<p class="hero-text animate-fadeInUp" style="animation-delay:0.2s">"You go Swim, You go Dance, You go Learn, Certificate self dey"</p>
+<div class="features-grid animate-fadeInUp" style="animation-delay:0.3s">
+<div class="feature-card"><div class="feature-icon">🏊</div><div class="feature-title">Pool Party</div><div class="feature-desc">Swim & chill</div></div>
+<div class="feature-card"><div class="feature-icon">💃</div><div class="feature-title">Gyration</div><div class="feature-desc">Dance all night</div></div>
+<div class="feature-card"><div class="feature-icon">📚</div><div class="feature-title">Symposium</div><div class="feature-desc">Learn & grow</div></div>
+<div class="feature-card"><div class="feature-icon">🏆</div><div class="feature-title">Awards</div><div class="feature-desc">Get certified</div></div>
+<div class="feature-card"><div class="feature-icon">👑</div><div class="feature-title">Pageant</div><div class="feature-desc">Beauty contest</div></div>
+<div class="feature-card"><div class="feature-icon">⚽</div><div class="feature-title">Sports</div><div class="feature-desc">Games & fun</div></div>
+</div>
+<div class="event-details animate-fadeInUp" style="animation-delay:0.4s">
+<div class="detail-row"><div class="detail-icon">📅</div><div class="detail-content"><h4>Date</h4><p>Wednesday, 3rd - Sunday, 7th June, 2026</p></div></div>
+<div class="detail-row"><div class="detail-icon">📍</div><div class="detail-content"><h4>Venue</h4><p>Ondo State College of Health Science and Technology, Akure, Ondo State</p></div></div>
+<div class="detail-row"><div class="detail-icon">🎯</div><div class="detail-content"><h4>Focus Areas</h4><p>TECH | POLITICS | TRAINING</p></div></div>
+</div>
+<div class="payment-box animate-fadeInUp" style="animation-delay:0.5s">
+<div class="payment-title">Payment Details</div>
+<div class="bank-detail"><span class="bank-label">Bank</span><span class="bank-value">ECOBANK</span></div>
+<div class="bank-detail"><span class="bank-label">Account Number</span><span class="bank-value">2270111207 <button class="copy-btn" onclick="copyToClipboard('2270111207')">Copy</button></span></div>
+<div class="bank-detail"><span class="bank-label">Account Name</span><span class="bank-value" style="font-size:12px">National Association of Health Information Management Students SW Zone</span></div>
+</div>
+<div class="cta-buttons animate-fadeInUp" style="animation-delay:0.6s">
+<button class="btn btn-primary" onclick="showPage('registrationPage')"><span>📝</span> Register Now</button>
+<button class="btn btn-secondary" onclick="showPage('schoolRegisterPage')"><span>🏫</span> Register School Chapter</button>
+<button class="btn btn-admin" onclick="showPage('loginPage')"><span>🔐</span> Admin Login</button>
+</div>
+<div style="text-align:center;padding:20px 0;color:rgba(255,255,255,0.5);font-size:12px">
+<p>NAHIMS Southwest Zone | Akure 2026</p>
+<p style="margin-top:4px">Contact: 0702 690 0706 | nahimssouthwestng@gmail.com</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- PUBLIC REGISTRATION -->
+<div id="registrationPage" class="page">
+<div style="min-height:100vh;background:var(--off-white)">
+<div style="background:linear-gradient(135deg,var(--primary),var(--primary-dark));padding:20px;position:sticky;top:0;z-index:100">
+<div style="max-width:600px;margin:0 auto;display:flex;align-items:center;gap:12px">
+<button onclick="showPage('landingPage')" style="background:rgba(255,255,255,0.2);border:none;color:white;width:40px;height:40px;border-radius:10px;font-size:18px;cursor:pointer">←</button>
+<div><h1 style="color:white;font-size:18px;font-weight:800">Registration</h1><p style="color:var(--gold);font-size:12px">AKURE 2026 Convention</p></div>
+</div>
+</div>
+<div style="max-width:600px;margin:0 auto;padding:20px">
+<div class="section-card">
+<div style="text-align:center;margin-bottom:24px">
+<div style="width:80px;height:80px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:20px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;color:white;font-size:32px">🎓</div>
+<h2 style="font-size:20px;font-weight:800">Register for Convention</h2>
+<p style="font-size:13px;color:var(--gray-500)">Fill all required fields (*)</p>
+</div>
+<form id="regForm" onsubmit="handleRegistration(event)">
+<div class="form-grid">
+<div class="form-group" style="grid-column:1/-1">
+<label class="form-label">Full Name <span class="required">*</span></label>
+<input type="text" class="form-input" id="regName" placeholder="Enter your full name" required>
+</div>
+<div class="form-group">
+<label class="form-label">School <span class="required">*</span></label>
+<select class="form-select" id="regSchool" required onchange="handleSchoolChange()">
+<option value="">Select School</option>
+<option value="Achievers University Owo">Achievers University Owo</option>
+<option value="Adeleke University Ede">Adeleke University Ede</option>
+<option value="Federal University of Technology Akure">Federal University of Technology Akure</option>
+<option value="Adekunle Ajasin University Akungba">Adekunle Ajasin University Akungba</option>
+<option value="University of Medical Sciences Ondo">University of Medical Sciences Ondo</option>
+<option value="Ondo State College of Health Technology">Ondo State College of Health Technology</option>
+<option value="Osun State College of Health Technology">Osun State College of Health Technology</option>
+<option value="Lagos State University">Lagos State University</option>
+<option value="University of Ibadan">University of Ibadan</option>
+<option value="Obafemi Awolowo University">Obafemi Awolowo University</option>
+<option value="Kwara State University">Kwara State University</option>
+<option value="Other">Other (Specify below)</option>
+</select>
+<input type="text" class="form-input" id="regSchoolOther" placeholder="Enter school name" style="margin-top:8px;display:none">
+</div>
+<div class="form-group">
+<label class="form-label">Department <span class="required">*</span></label>
+<input type="text" class="form-input" id="regDept" placeholder="e.g. Health Information Management" required>
+</div>
+<div class="form-group">
+<label class="form-label">Level <span class="required">*</span></label>
+<select class="form-select" id="regLevel" required>
+<option value="">Select Level</option>
+<option value="100L">100 Level</option>
+<option value="200L">200 Level</option>
+<option value="300L">300 Level</option>
+<option value="400L">400 Level</option>
+<option value="500L">500 Level</option>
+<option value="Professional">Professional</option>
+<option value="Non-Professional">Non-Professional</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label">Phone <span class="required">*</span></label>
+<input type="tel" class="form-input" id="regPhone" placeholder="e.g. 0702 690 0706" required>
+</div>
+<div class="form-group">
+<label class="form-label">Email <span class="required">*</span></label>
+<input type="email" class="form-input" id="regEmail" placeholder="your@email.com" required>
+</div>
+<div class="form-group" style="grid-column:1/-1">
+<label class="form-label">Category <span class="required">*</span></label>
+<select class="form-select" id="regCategory" onchange="handleCategoryChange()" required>
+<option value="">Select Category</option>
+<option value="student" data-amount="10500">Students - ₦10,500</option>
+<option value="professional" data-amount="15500">Professionals - ₦15,500</option>
+<option value="non-professional" data-amount="20500">Non-Professionals - ₦20,500</option>
+<option value="executive" data-amount="0">NAHIMS SW Executive - ₦0</option>
+<option value="cpc" data-amount="0">Convention Planning Committee (CPC) - ₦0</option>
+</select>
+</div>
+<div class="form-group" id="officeField" style="display:none;grid-column:1/-1">
+<label class="form-label">Office Title <span class="required">*</span></label>
+<select class="form-select" id="regOffice">
+<option value="">Select Office</option>
+<option value="President">President</option>
+<option value="Vice Chairman">Vice Chairman</option>
+<option value="General Secretary">General Secretary</option>
+<option value="Treasurer">Treasurer</option>
+<option value="Financial Secretary">Financial Secretary</option>
+<option value="Public Relations Officer">Public Relations Officer</option>
+<option value="Welfare Directress">Welfare Directress</option>
+<option value="Social Directress">Social Directress</option>
+<option value="Sport Director">Sport Director</option>
+<option value="Other">Other</option>
+</select>
+</div>
+<div class="form-group" id="roleField" style="display:none;grid-column:1/-1">
+<label class="form-label">CPC Role <span class="required">*</span></label>
+<input type="text" class="form-input" id="regRole" placeholder="e.g. Logistics Coordinator">
+</div>
+<div class="form-group" id="receiptField" style="grid-column:1/-1">
+<label class="form-label">Payment Receipt <span class="required">*</span></label>
+<div class="file-upload">
+<input type="file" class="file-input" id="regReceipt" accept="image/*,.pdf" required>
+<label class="file-label" for="regReceipt">
+<span class="file-icon">📄</span>
+<span class="file-text">Tap to upload receipt</span>
+<span class="file-hint">JPG, PNG or PDF (Max 5MB)</span>
+</label>
+</div>
+<div id="receiptPreview" style="margin-top:8px;display:none">
+<img id="receiptPreviewImg" style="max-width:100%;border-radius:8px;max-height:200px;object-fit:cover">
+</div>
+</div>
+<div class="form-group" style="grid-column:1/-1">
+<label class="form-label">Passport Photo <span class="required">*</span></label>
+<img id="photoPreview" class="photo-preview" alt="Preview">
+<div class="file-upload">
+<input type="file" class="file-input" id="regPhoto" accept="image/*" capture="user" required>
+<label class="file-label" for="regPhoto">
+<span class="file-icon">📷</span>
+<span class="file-text">Tap to take photo or upload</span>
+<span class="file-hint">Clear face photo, JPG/PNG (Max 3MB)</span>
+</label>
+</div>
+</div>
+<div class="form-group">
+<label class="form-label">T-Shirt Size</label>
+<select class="form-select" id="regShirt">
+<option value="">Select Size</option>
+<option value="S">Small (S)</option>
+<option value="M">Medium (M)</option>
+<option value="L">Large (L)</option>
+<option value="XL">Extra Large (XL)</option>
+<option value="XXL">XXL</option>
+</select>
+</div>
+</div>
+<button type="submit" class="submit-btn" id="submitBtn"><span>🚀</span> Submit Registration</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SCHOOL REGISTRATION -->
+<div id="schoolRegisterPage" class="page">
+<div style="min-height:100vh;background:var(--off-white)">
+<div style="background:linear-gradient(135deg,var(--primary),var(--primary-dark));padding:20px;position:sticky;top:0;z-index:100">
+<div style="max-width:600px;margin:0 auto;display:flex;align-items:center;gap:12px">
+<button onclick="showPage('landingPage')" style="background:rgba(255,255,255,0.2);border:none;color:white;width:40px;height:40px;border-radius:10px;font-size:18px;cursor:pointer">←</button>
+<div><h1 style="color:white;font-size:18px;font-weight:800">School Registration</h1><p style="color:var(--gold);font-size:12px">Register New Chapter</p></div>
+</div>
+</div>
+<div style="max-width:600px;margin:0 auto;padding:20px">
+<div class="section-card">
+<div style="text-align:center;margin-bottom:24px">
+<div style="width:80px;height:80px;background:linear-gradient(135deg,var(--gold),#B8941F);border-radius:20px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;color:var(--primary-dark);font-size:32px">🏫</div>
+<h2 style="font-size:20px;font-weight:800">Register School Chapter</h2>
+<p style="font-size:13px;color:var(--gray-500)">For new NAHIMS chapters in Southwest Zone</p>
+</div>
+<form id="schoolForm" onsubmit="handleSchoolRegistration(event)">
+<div class="form-grid">
+<div class="form-group" style="grid-column:1/-1">
+<label class="form-label">School Name <span class="required">*</span></label>
+<input type="text" class="form-input" id="schoolName" placeholder="Enter full school name" required>
+</div>
+<div class="form-group" style="grid-column:1/-1">
+<label class="form-label">Chapter President <span class="required">*</span></label>
+<input type="text" class="form-input" id="schoolPresident" placeholder="Full name of chapter president" required>
+</div>
+<div class="form-group">
+<label class="form-label">Phone <span class="required">*</span></label>
+<input type="tel" class="form-input" id="schoolPhone" placeholder="Phone number" required>
+</div>
+<div class="form-group">
+<label class="form-label">Email <span class="required">*</span></label>
+<input type="email" class="form-input" id="schoolEmail" placeholder="Email address" required>
+</div>
+<div class="form-group" style="grid-column:1/-1">
+<label class="form-label">School Address <span class="required">*</span></label>
+<textarea class="form-input" id="schoolAddress" rows="3" placeholder="Full address including state" required style="resize:vertical"></textarea>
+</div>
+<div class="form-group" style="grid-column:1/-1">
+<label class="form-label">Letter of Intent <span class="required">*</span></label>
+<div class="file-upload">
+<input type="file" class="file-input" id="schoolLetter" accept="image/*,.pdf" required>
+<label class="file-label" for="schoolLetter">
+<span class="file-icon">📋</span>
+<span class="file-text">Upload letter of intent</span>
+<span class="file-hint">Signed letter from school authority</span>
+</label>
+</div>
+</div>
+</div>
+<button type="submit" class="submit-btn"><span>🏫</span> Submit School Registration</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<!-- LOGIN PAGE -->
+<div id="loginPage" class="page">
+<div class="login-page">
+<div class="login-card">
+<div class="login-logo">NA</div>
+<h1 class="login-title">Admin Access</h1>
+<p class="login-subtitle">NAHIMS Southwest Convention 2026</p>
+<div class="login-error" id="loginError">Invalid username or password</div>
+<form onsubmit="handleLogin(event)">
+<div class="form-group">
+<label class="form-label">Username</label>
+<input type="text" class="form-input" id="username" placeholder="Enter username" required autocomplete="username">
+</div>
+<div class="form-group">
+<label class="form-label">Password</label>
+<input type="password" class="form-input" id="password" placeholder="Enter password" required autocomplete="current-password">
+</div>
+<button type="submit" class="login-btn">Sign In Securely</button>
+</form>
+<div style="text-align:center;margin-top:20px">
+<button onclick="showPage('landingPage')" style="background:none;border:none;color:var(--gray-500);font-size:14px;cursor:pointer">← Back to Home</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ADMIN DASHBOARD -->
+<div id="dashboardPage" class="page">
+<div class="dashboard">
+<div class="dash-header">
+<div class="dash-header-top">
+<div>
+<div class="dash-title">Admin Dashboard</div>
+<div style="font-size:12px;color:var(--gold)">AKURE 2026 Convention</div>
+</div>
+<button class="dash-menu-btn" onclick="logout()">🚪</button>
+</div>
+<div class="dash-tabs">
+<button class="dash-tab active" onclick="switchTab('overview')" data-tab="overview">Overview</button>
+<button class="dash-tab" onclick="switchTab('registrations')" data-tab="registrations">Registrations</button>
+<button class="dash-tab" onclick="switchTab('newReg')" data-tab="newReg">+ New Reg</button>
+<button class="dash-tab" onclick="switchTab('schools')" data-tab="schools">Schools</button>
+<button class="dash-tab" onclick="switchTab('reports')" data-tab="reports">Reports</button>
+<button class="dash-tab" onclick="switchTab('settings')" data-tab="settings">Settings</button>
+</div>
+</div>
+
+<div class="dash-content">
+<!-- OVERVIEW TAB -->
+<div id="tab-overview" class="tab-content active">
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-icon green">👥</div>
+<div class="stat-value" id="statTotal">0</div>
+<div class="stat-label">Total Registered</div>
+<div class="stat-change positive">of 400 target</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon blue">⏳</div>
+<div class="stat-value" id="statPending">0</div>
+<div class="stat-label">Pending Approval</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon orange">💰</div>
+<div class="stat-value" id="statIncome">₦0</div>
+<div class="stat-label">Total Income</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon purple">✅</div>
+<div class="stat-value" id="statApproved">0</div>
+<div class="stat-label">Confirmed</div>
+</div>
+</div>
+
+<div class="section-card">
+<div class="section-header">
+<h3 class="section-title">Recent Registrations</h3>
+<button class="section-action" onclick="switchTab('registrations')">View All</button>
+</div>
+<div id="recentRegs" style="max-height:400px;overflow-y:auto"></div>
+</div>
+
+<div class="section-card">
+<div class="section-header">
+<h3 class="section-title">School Breakdown</h3>
+<button class="section-action" onclick="generateSchoolReport()">Download Report</button>
+</div>
+<div id="schoolBreakdown"></div>
+</div>
+</div>
+
+<!-- REGISTRATIONS TAB -->
+<div id="tab-registrations" class="tab-content">
+<div class="section-card">
+<div class="section-header">
+<h3 class="section-title">All Registrations</h3>
+<button class="section-action" onclick="downloadFullReport()">Download PDF</button>
+</div>
+<div class="search-box">
+<span class="search-icon">🔍</span>
+<input type="text" class="search-input" id="searchInput" placeholder="Search by name, school, reg no..." oninput="filterRegistrations()">
+</div>
+<div class="filter-bar">
+<button class="filter-btn active" onclick="filterByStatus('all')">All</button>
+<button class="filter-btn" onclick="filterByStatus('pending')">Pending</button>
+<button class="filter-btn" onclick="filterByStatus('confirmed')">Confirmed</button>
+<button class="filter-btn" onclick="filterByStatus('paid')">Paid</button>
+<button class="filter-btn" onclick="filterByStatus('exempt')">Exempt</button>
+</div>
+<div class="reg-table-container">
+<table class="reg-table" id="regTable">
+<thead><tr><th>Photo</th><th>Name</th><th>School</th><th>Reg No</th><th>Category</th><th>Status</th><th>Actions</th></tr></thead>
+<tbody id="regTableBody"></tbody>
+</table>
+</div>
+<div id="regTableEmpty" class="empty-state" style="display:none">
+<div class="empty-icon">🔍</div>
+<div class="empty-title">No results found</div>
+</div>
+</div>
+</div>
+
+<!-- NEW REGISTRATION TAB -->
+<div id="tab-newReg" class="tab-content">
+<div class="section-card">
+<div style="text-align:center;margin-bottom:24px">
+<h2 style="font-size:20px;font-weight:800">Manual Registration</h2>
+<p style="font-size:13px;color:var(--gray-500)">Register attendees directly (Admin only)</p>
+</div>
+<form id="adminRegForm" onsubmit="handleAdminRegistration(event)">
+<div class="form-grid">
+<div class="form-group" style="grid-column:1/-1">
+<label class="form-label">Full Name <span class="required">*</span></label>
+<input type="text" class="form-input" id="adminRegName" placeholder="Enter full name" required>
+</div>
+<div class="form-group">
+<label class="form-label">School <span class="required">*</span></label>
+<select class="form-select" id="adminRegSchool" required>
+<option value="">Select School</option>
+<option value="Achievers University Owo">Achievers University Owo</option>
+<option value="Adeleke University Ede">Adeleke University Ede</option>
+<option value="Federal University of Technology Akure">Federal University of Technology Akure</option>
+<option value="Adekunle Ajasin University Akungba">Adekunle Ajasin University Akungba</option>
+<option value="University of Medical Sciences Ondo">University of Medical Sciences Ondo</option>
+<option value="Ondo State College of Health Technology">Ondo State College of Health Technology</option>
+<option value="Osun State College of Health Technology">Osun State College of Health Technology</option>
+<option value="Lagos State University">Lagos State University</option>
+<option value="University of Ibadan">University of Ibadan</option>
+<option value="Obafemi Awolowo University">Obafemi Awolowo University</option>
+<option value="Kwara State University">Kwara State University</option>
+<option value="Other">Other</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label">Department <span class="required">*</span></label>
+<input type="text" class="form-input" id="adminRegDept" placeholder="Department" required>
+</div>
+<div class="form-group">
+<label class="form-label">Level <span class="required">*</span></label>
+<select class="form-select" id="adminRegLevel" required>
+<option value="">Select</option>
+<option value="100L">100L</option>
+<option value="200L">200L</option>
+<option value="300L">300L</option>
+<option value="400L">400L</option>
+<option value="500L">500L</option>
+<option value="Professional">Professional</option>
+<option value="Non-Professional">Non-Professional</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label">Phone <span class="required">*</span></label>
+<input type="tel" class="form-input" id="adminRegPhone" placeholder="Phone number" required>
+</div>
+<div class="form-group">
+<label class="form-label">Email</label>
+<input type="email" class="form-input" id="adminRegEmail" placeholder="Email">
+</div>
+<div class="form-group" style="grid-column:1/-1">
+<label class="form-label">Category <span class="required">*</span></label>
+<select class="form-select" id="adminRegCategory" onchange="handleAdminCategoryChange()" required>
+<option value="">Select Category</option>
+<option value="student" data-amount="10500">Students - ₦10,500</option>
+<option value="professional" data-amount="15500">Professionals - ₦15,500</option>
+<option value="non-professional" data-amount="20500">Non-Professionals - ₦20,500</option>
+<option value="executive" data-amount="0">NAHIMS SW Executive - ₦0</option>
+<option value="cpc" data-amount="0">CPC Member - ₦0</option>
+</select>
+</div>
+<div class="form-group" id="adminOfficeField" style="display:none;grid-column:1/-1">
+<label class="form-label">Office Title <span class="required">*</span></label>
+<select class="form-select" id="adminRegOffice">
+<option value="">Select Office</option>
+<option value="President">President</option>
+<option value="Vice Chairman">Vice Chairman</option>
+<option value="General Secretary">General Secretary</option>
+<option value="Treasurer">Treasurer</option>
+<option value="Financial Secretary">Financial Secretary</option>
+<option value="Public Relations Officer">Public Relations Officer</option>
+<option value="Welfare Directress">Welfare Directress</option>
+<option value="Social Directress">Social Directress</option>
+<option value="Sport Director">Sport Director</option>
+<option value="Other">Other</option>
+</select>
+</div>
+<div class="form-group" id="adminRoleField" style="display:none;grid-column:1/-1">
+<label class="form-label">CPC Role <span class="required">*</span></label>
+<input type="text" class="form-input" id="adminRegRole" placeholder="e.g. Logistics Coordinator">
+</div>
+<div class="form-group" style="grid-column:1/-1">
+<label class="form-label">Payment Status <span class="required">*</span></label>
+<select class="form-select" id="adminRegPayment" required>
+<option value="">Select Status</option>
+<option value="paid">Paid</option>
+<option value="not-paid">Not Paid</option>
+<option value="executive-exempt">Executive Exempt</option>
+</select>
+</div>
+<div class="form-group" style="grid-column:1/-1">
+<label class="form-label">Passport Photo <span class="required">*</span></label>
+<img id="adminPhotoPreview" class="photo-preview" alt="Preview">
+<div class="file-upload">
+<input type="file" class="file-input" id="adminRegPhoto" accept="image/*" capture="user" required>
+<label class="file-label" for="adminRegPhoto">
+<span class="file-icon">📷</span>
+<span class="file-text">Take photo or upload</span>
+<span class="file-hint">Clear face photo required</span>
+</label>
+</div>
+</div>
+</div>
+<button type="submit" class="submit-btn" id="adminSubmitBtn"><span>✅</span> REGISTER & GENERATE SLIP</button>
+</form>
+</div>
+</div>
+
+<!-- SCHOOLS TAB -->
+<div id="tab-schools" class="tab-content">
+<div class="section-card">
+<div class="section-header">
+<h3 class="section-title">Registered Schools</h3>
+<button class="section-action" onclick="showModal('newSchoolModal')">+ Add School</button>
+</div>
+<div id="schoolsList"></div>
+</div>
+</div>
+
+<!-- REPORTS TAB -->
+<div id="tab-reports" class="tab-content">
+<div class="section-card">
+<h3 class="section-title" style="margin-bottom:20px">Generate Reports</h3>
+<div style="display:grid;gap:12px">
+<button class="btn btn-primary" onclick="downloadFullReport()" style="justify-content:flex-start;padding:16px"><span>📊</span> Download Full Registration List (PDF)</button>
+<button class="btn btn-secondary" onclick="generateSchoolReport()" style="justify-content:flex-start;padding:16px;color:var(--gray-700)"><span>🏫</span> Download School Breakdown Report</button>
+<button class="btn btn-secondary" onclick="exportToJSON()" style="justify-content:flex-start;padding:16px;color:var(--gray-700)"><span>💾</span> Export All Data (JSON Backup)</button>
+<button class="btn btn-secondary" onclick="document.getElementById('importFile').click()" style="justify-content:flex-start;padding:16px;color:var(--gray-700)"><span>📥</span> Import Data from JSON</button>
+<input type="file" id="importFile" accept=".json" style="display:none" onchange="importFromJSON(event)">
+</div>
+</div>
+</div>
+
+<!-- SETTINGS TAB -->
+<div id="tab-settings" class="tab-content">
+<div class="section-card">
+<h3 class="section-title" style="margin-bottom:20px">System Settings</h3>
+<div style="display:grid;gap:16px">
+<div style="padding:16px;background:var(--gray-50);border-radius:12px">
+<h4 style="font-size:14px;font-weight:700;margin-bottom:8px">Data Storage</h4>
+<p style="font-size:13px;color:var(--gray-500);margin-bottom:12px">All data is stored locally in your browser. Clear browser data to reset.</p>
+<button class="action-btn delete" onclick="clearAllData()" style="width:100%">Clear All Data</button>
+</div>
+<div style="padding:16px;background:var(--gray-50);border-radius:12px">
+<h4 style="font-size:14px;font-weight:700;margin-bottom:8px">About</h4>
+<p style="font-size:13px;color:var(--gray-500)">NAHIMS Southwest Convention Management System v1.0</p>
+<p style="font-size:12px;color:var(--gray-400);margin-top:4px">Built for Akure 2026 Convention</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- QR VERIFICATION PAGE -->
+<div id="verifyPage" class="page">
+<div class="verify-page">
+<div class="verify-card" id="verifyCard">
+<div class="verify-status" id="verifyStatus">❓</div>
+<h2 class="verify-title" id="verifyTitle">Verifying...</h2>
+<p id="verifyMessage" style="color:var(--gray-500);font-size:14px">Please wait...</p>
+<div id="verifyDetails" style="margin-top:20px;text-align:left;display:none">
+<div style="background:var(--gray-50);padding:16px;border-radius:12px">
+<img id="verifyPhoto" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);margin:0 auto 12px;display:block">
+<div style="text-align:center;margin-bottom:12px">
+<div id="verifyName" style="font-weight:800;font-size:16px"></div>
+<div id="verifySchool" style="font-size:13px;color:var(--gray-500)"></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px">
+<div><span style="color:var(--gray-500)">Reg No:</span> <span id="verifyRegNo" style="font-weight:700"></span></div>
+<div><span style="color:var(--gray-500)">Category:</span> <span id="verifyCategory" style="font-weight:700"></span></div>
+</div>
+</div>
+</div>
+<button onclick="showPage('landingPage')" style="margin-top:20px;padding:12px 24px;background:var(--gray-100);border:none;border-radius:8px;font-weight:600;cursor:pointer">Back to Home</button>
+</div>
+</div>
+</div>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="slipModal">
+<div class="modal">
+<div class="modal-header">
+<h3 class="modal-title">Registration Slip</h3>
+<button class="modal-close" onclick="closeModal('slipModal')">×</button>
+</div>
+<div class="modal-body">
+<div class="slip-preview" id="slipPreview"></div>
+</div>
+<div class="modal-footer">
+<button class="modal-btn secondary" onclick="closeModal('slipModal')">Close</button>
+<button class="modal-btn primary" onclick="downloadCurrentSlip()">Download PDF</button>
+</div>
+</div>
+</div>
+
+<div class="modal-overlay" id="newSchoolModal">
+<div class="modal">
+<div class="modal-header">
+<h3 class="modal-title">Add New School</h3>
+<button class="modal-close" onclick="closeModal('newSchoolModal')">×</button>
+</div>
+<div class="modal-body">
+<form id="modalSchoolForm" onsubmit="handleModalSchool(event)">
+<div class="form-group">
+<label class="form-label">School Name <span class="required">*</span></label>
+<input type="text" class="form-input" id="modalSchoolName" required>
+</div>
+<div class="form-group">
+<label class="form-label">Chapter President <span class="required">*</span></label>
+<input type="text" class="form-input" id="modalSchoolPresident" required>
+</div>
+<div class="form-group">
+<label class="form-label">Phone <span class="required">*</span></label>
+<input type="tel" class="form-input" id="modalSchoolPhone" required>
+</div>
+<div class="form-group">
+<label class="form-label">Email <span class="required">*</span></label>
+<input type="email" class="form-input" id="modalSchoolEmail" required>
+</div>
+<div class="form-group">
+<label class="form-label">Address <span class="required">*</span></label>
+<textarea class="form-input" id="modalSchoolAddress" rows="2" required></textarea>
+</div>
+</form>
+</div>
+<div class="modal-footer">
+<button class="modal-btn secondary" onclick="closeModal('newSchoolModal')">Cancel</button>
+<button class="modal-btn primary" onclick="document.getElementById('modalSchoolForm').dispatchEvent(new Event('submit'))">Approve & Generate Certificate</button>
+</div>
+</div>
+</div>
+
+<!-- LOADING -->
+<div class="loading-overlay" id="loadingOverlay">
+<div class="spinner"></div>
+<div class="loading-text">Processing...</div>
+</div>
+
+<!-- TOASTS -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+// ==================== DATA STORE ====================
+const AppData = {
+    registrations: [],
+    schools: [],
+    nextRegNo: 100,
+    nextSchoolCert: 1,
+    currentUser: null,
+    filterStatus: 'all',
+    searchQuery: ''
+};
+
+// Initialize from localStorage
+function initData() {
+    const saved = localStorage.getItem('nahims_akure2026');
+    if (saved) {
+        try {
+            const data = JSON.parse(saved);
+            AppData.registrations = data.registrations || [];
+            AppData.schools = data.schools || [];
+            AppData.nextRegNo = data.nextRegNo || 100;
+            AppData.nextSchoolCert = data.nextSchoolCert || 1;
+        } catch(e) {
+            console.error('Error loading data:', e);
+        }
+    }
+}
+
+function saveData() {
+    localStorage.setItem('nahims_akure2026', JSON.stringify({
+        registrations: AppData.registrations,
+        schools: AppData.schools,
+        nextRegNo: AppData.nextRegNo,
+        nextSchoolCert: AppData.nextSchoolCert
+    }));
+}
+
+// ==================== NAVIGATION ====================
+function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+    window.scrollTo(0, 0);
+    if (pageId === 'dashboardPage') {
+        updateDashboard();
+    }
+}
+
+function switchTab(tabName) {
+    document.querySelectorAll('.dash-tab').forEach(t => t.classList.remove('active'));
+    document.querySelector('[data-tab="' + tabName + '"]').classList.add('active');
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + tabName).classList.add('active');
+    if (tabName === 'overview') updateDashboard();
+    if (tabName === 'registrations') renderRegistrations();
+    if (tabName === 'schools') renderSchools();
+}
+
+// ==================== LOGIN ====================
+function handleLogin(e) {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    if (username === 'Admin' && password === 'Spudnick01') {
+        AppData.currentUser = 'admin';
+        showToast('Welcome, Admin!', 'success');
+        showPage('dashboardPage');
+        document.getElementById('loginError').style.display = 'none';
+    } else {
+        document.getElementById('loginError').style.display = 'block';
+        showToast('Invalid credentials', 'error');
+    }
+}
+
+function logout() {
+    AppData.currentUser = null;
+    showPage('landingPage');
+    showToast('Logged out successfully', 'success');
+}
+
+// ==================== COUNTDOWN ====================
+function updateCountdown() {
+    const eventDate = new Date('2026-06-03T00:00:00');
+    const now = new Date();
+    const diff = eventDate - now;
+    if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        document.getElementById('days').textContent = String(days).padStart(2, '0');
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// ==================== REGISTRATION HANDLERS ====================
+function handleSchoolChange() {
+    const school = document.getElementById('regSchool').value;
+    document.getElementById('regSchoolOther').style.display = school === 'Other' ? 'block' : 'none';
+    if (school === 'Other') document.getElementById('regSchoolOther').required = true;
+}
+
+function handleCategoryChange() {
+    const category = document.getElementById('regCategory').value;
+    document.getElementById('officeField').style.display = category === 'executive' ? 'block' : 'none';
+    document.getElementById('roleField').style.display = category === 'cpc' ? 'block' : 'none';
+    const hasFee = category === 'student' || category === 'professional' || category === 'non-professional';
+    document.getElementById('receiptField').style.display = hasFee ? 'block' : 'none';
+    document.getElementById('regReceipt').required = hasFee;
+}
+
+function handleAdminCategoryChange() {
+    const category = document.getElementById('adminRegCategory').value;
+    document.getElementById('adminOfficeField').style.display = category === 'executive' ? 'block' : 'none';
+    document.getElementById('adminRoleField').style.display = category === 'cpc' ? 'block' : 'none';
+}
+
+// Photo preview
+function setupPhotoPreview(inputId, previewId) {
+    const input = document.getElementById(inputId);
+    if (input) {
+        input.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.getElementById(previewId);
+                    img.src = e.target.result;
+                    img.classList.add('show');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+}
+
+setupPhotoPreview('regPhoto', 'photoPreview');
+setupPhotoPreview('adminRegPhoto', 'adminPhotoPreview');
+
+// Receipt preview
+const receiptInput = document.getElementById('regReceipt');
+if (receiptInput) {
+    receiptInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('receiptPreviewImg').src = e.target.result;
+                document.getElementById('receiptPreview').style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+}
+
+// ==================== PUBLIC REGISTRATION ====================
+function handleRegistration(e) {
+    e.preventDefault();
+    showLoading(true);
+    setTimeout(function() {
+        const reg = {
+            id: Date.now(),
+            name: document.getElementById('regName').value,
+            school: document.getElementById('regSchool').value === 'Other' ? document.getElementById('regSchoolOther').value : document.getElementById('regSchool').value,
+            dept: document.getElementById('regDept').value,
+            level: document.getElementById('regLevel').value,
+            phone: document.getElementById('regPhone').value,
+            email: document.getElementById('regEmail').value,
+            category: document.getElementById('regCategory').value,
+            office: document.getElementById('regOffice') ? document.getElementById('regOffice').value : '',
+            role: document.getElementById('regRole') ? document.getElementById('regRole').value : '',
+            shirt: document.getElementById('regShirt').value,
+            photo: document.getElementById('photoPreview').src || '',
+            receipt: document.getElementById('receiptPreviewImg') ? document.getElementById('receiptPreviewImg').src : '',
+            status: 'pending',
+            regNo: null,
+            date: new Date().toISOString()
+        };
+        AppData.registrations.push(reg);
+        saveData();
+        showLoading(false);
+        showToast('Registration submitted! Awaiting approval.', 'success');
+        document.getElementById('regForm').reset();
+        document.getElementById('photoPreview').classList.remove('show');
+        document.getElementById('receiptPreview').style.display = 'none';
+        showPage('landingPage');
+    }, 1000);
+}
+
+// ==================== ADMIN REGISTRATION ====================
+function handleAdminRegistration(e) {
+    e.preventDefault();
+    showLoading(true);
+    setTimeout(function() {
+        const category = document.getElementById('adminRegCategory').value;
+        const paymentStatus = document.getElementById('adminRegPayment').value;
+        const reg = {
+            id: Date.now(),
+            name: document.getElementById('adminRegName').value,
+            school: document.getElementById('adminRegSchool').value,
+            dept: document.getElementById('adminRegDept').value,
+            level: document.getElementById('adminRegLevel').value,
+            phone: document.getElementById('adminRegPhone').value,
+            email: document.getElementById('adminRegEmail').value,
+            category: category,
+            office: document.getElementById('adminRegOffice') ? document.getElementById('adminRegOffice').value : '',
+            role: document.getElementById('adminRegRole') ? document.getElementById('adminRegRole').value : '',
+            paymentStatus: paymentStatus,
+            photo: document.getElementById('adminPhotoPreview').src || '',
+            status: paymentStatus === 'paid' || paymentStatus === 'executive-exempt' ? 'confirmed' : 'pending',
+            regNo: 'NS' + AppData.nextRegNo,
+            date: new Date().toISOString()
+        };
+        AppData.nextRegNo++;
+        AppData.registrations.push(reg);
+        saveData();
+        showLoading(false);
+        showToast('Registered! Reg No: ' + reg.regNo, 'success');
+        currentSlipData = reg;
+        showSlipPreview(reg);
+        document.getElementById('adminRegForm').reset();
+        document.getElementById('adminPhotoPreview').classList.remove('show');
+        updateDashboard();
+    }, 1500);
+}
+
+// ==================== SCHOOL REGISTRATION ====================
+function handleSchoolRegistration(e) {
+    e.preventDefault();
+    showLoading(true);
+    setTimeout(function() {
+        const school = {
+            id: Date.now(),
+            name: document.getElementById('schoolName').value,
+            president: document.getElementById('schoolPresident').value,
+            phone: document.getElementById('schoolPhone').value,
+            email: document.getElementById('schoolEmail').value,
+            address: document.getElementById('schoolAddress').value,
+            status: 'pending',
+            certNo: null,
+            date: new Date().toISOString()
+        };
+        AppData.schools.push(school);
+        saveData();
+        showLoading(false);
+        showToast('School registration submitted!', 'success');
+        document.getElementById('schoolForm').reset();
+        showPage('landingPage');
+    }, 1000);
+}
+
+function handleModalSchool(e) {
+    e.preventDefault();
+    const school = {
+        id: Date.now(),
+        name: document.getElementById('modalSchoolName').value,
+        president: document.getElementById('modalSchoolPresident').value,
+        phone: document.getElementById('modalSchoolPhone').value,
+        email: document.getElementById('modalSchoolEmail').value,
+        address: document.getElementById('modalSchoolAddress').value,
+        status: 'approved',
+        certNo: 'NAHIMS/SW/2026/' + String(AppData.nextSchoolCert).padStart(3, '0'),
+        date: new Date().toISOString()
+    };
+    AppData.nextSchoolCert++;
+    AppData.schools.push(school);
+    saveData();
+    closeModal('newSchoolModal');
+    renderSchools();
+    showToast('School approved! Cert: ' + school.certNo, 'success');
+    generateSchoolCertPDF(school);
+    document.getElementById('modalSchoolForm').reset();
+}
+
+// ==================== DASHBOARD ====================
+function updateDashboard() {
+    const regs = AppData.registrations;
+    const total = regs.length;
+    const pending = regs.filter(function(r) { return r.status === 'pending'; }).length;
+    const confirmed = regs.filter(function(r) { return r.status === 'confirmed'; }).length;
+    let income = 0;
+    regs.forEach(function(r) {
+        if (r.status === 'confirmed' && r.paymentStatus === 'paid') {
+            if (r.category === 'student') income += 10500;
+            else if (r.category === 'professional') income += 15500;
+            else if (r.category === 'non-professional') income += 20500;
+        }
+    });
+    document.getElementById('statTotal').textContent = total;
+    document.getElementById('statPending').textContent = pending;
+    document.getElementById('statIncome').textContent = '₦' + income.toLocaleString();
+    document.getElementById('statApproved').textContent = confirmed;
+
+    // Recent registrations
+    const recent = regs.slice(-5).reverse();
+    let recentHTML = '';
+    if (recent.length) {
+        recentHTML = recent.map(function(r) {
+            return '<div style="display:flex;align-items:center;gap:12px;padding:12px;border-bottom:1px solid var(--gray-200)">' +
+                '<img src="' + (r.photo || 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><rect width="40" height="40" fill="%23f3f4f6"/><text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="%239ca3af">👤</text></svg>') + '" style="width:40px;height:40px;border-radius:50%;object-fit:cover">' +
+                '<div style="flex:1"><div style="font-weight:700;font-size:14px">' + r.name + '</div>' +
+                '<div style="font-size:12px;color:var(--gray-500)">' + r.school + ' • ' + (r.regNo || 'Pending') + '</div></div>' +
+                '<span class="status-badge status-' + r.status + '">' + r.status + '</span></div>';
+        }).join('');
+    } else {
+        recentHTML = '<div class="empty-state"><div class="empty-icon">📋</div><div class="empty-title">No registrations yet</div></div>';
+    }
+    document.getElementById('recentRegs').innerHTML = recentHTML;
+
+    // School breakdown
+    const schoolStats = {};
+    regs.forEach(function(r) {
+        if (!schoolStats[r.school]) schoolStats[r.school] = { count: 0, amount: 0 };
+        schoolStats[r.school].count++;
+        if (r.status === 'confirmed' && r.paymentStatus === 'paid') {
+            if (r.category === 'student') schoolStats[r.school].amount += 10500;
+            else if (r.category === 'professional') schoolStats[r.school].amount += 15500;
+            else if (r.category === 'non-professional') schoolStats[r.school].amount += 20500;
+        }
+    });
+    let breakdownHTML = '';
+    if (Object.keys(schoolStats).length) {
+        breakdownHTML = Object.entries(schoolStats).map(function([school, stats]) {
+            return '<div class="school-item"><div class="school-info"><h4>' + school + '</h4><p>' + stats.count + ' registered</p></div>' +
+                '<div class="school-stats"><div class="school-count">' + stats.count + '</div><div class="school-amount">₦' + stats.amount.toLocaleString() + '</div></div></div>';
+        }).join('');
+    } else {
+        breakdownHTML = '<div class="empty-state"><div class="empty-icon">🏫</div><div class="empty-title">No data yet</div></div>';
+    }
+    document.getElementById('schoolBreakdown').innerHTML = breakdownHTML;
+}
+
+// ==================== REGISTRATIONS TABLE ====================
+function renderRegistrations() {
+    const tbody = document.getElementById('regTableBody');
+    const empty = document.getElementById('regTableEmpty');
+    let filtered = AppData.registrations;
+    if (AppData.filterStatus !== 'all') {
+        filtered = filtered.filter(function(r) { return r.status === AppData.filterStatus; });
+    }
+    if (AppData.searchQuery) {
+        const q = AppData.searchQuery.toLowerCase();
+        filtered = filtered.filter(function(r) {
+            return r.name.toLowerCase().includes(q) || 
+                r.school.toLowerCase().includes(q) || 
+                (r.regNo && r.regNo.toLowerCase().includes(q));
+        });
+    }
+    if (filtered.length === 0) {
+        tbody.innerHTML = '';
+        empty.style.display = 'block';
+        return;
+    }
+    empty.style.display = 'none';
+    tbody.innerHTML = filtered.map(function(r) {
+        return '<tr><td><img src="' + (r.photo || 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><rect width="40" height="40" fill="%23f3f4f6"/><text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="%239ca3af">👤</text></svg>') + '" style="width:40px;height:40px;border-radius:50%;object-fit:cover"></td>' +
+            '<td><div class="reg-name">' + r.name + '</div><div class="reg-school">' + r.dept + '</div></td>' +
+            '<td><div class="reg-name">' + r.school + '</div><div class="reg-school">' + r.level + '</div></td>' +
+            '<td><span class="reg-no">' + (r.regNo || 'Pending') + '</span></td>' +
+            '<td>' + formatCategory(r.category) + '</td>' +
+            '<td><span class="status-badge status-' + r.status + '">' + r.status + '</span></td>' +
+            '<td><div class="action-btns">' +
+            (r.status === 'pending' ? '<button class="action-btn approve" onclick="approveRegistration(' + r.id + ')">Approve</button>' : '') +
+            '<button class="action-btn view" onclick="viewSlip(' + r.id + ')">Slip</button>' +
+            '<button class="action-btn delete" onclick="deleteRegistration(' + r.id + ')">Del</button>' +
+            '</div></td></tr>';
+    }).join('');
+}
+
+function filterByStatus(status) {
+    AppData.filterStatus = status;
+    document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+    if (event && event.target) event.target.classList.add('active');
+    renderRegistrations();
+}
+
+function filterRegistrations() {
+    AppData.searchQuery = document.getElementById('searchInput').value;
+    renderRegistrations();
+}
+
+function formatCategory(cat) {
+    const map = { 'student': 'Student', 'professional': 'Professional', 'non-professional': 'Non-Professional', 'executive': 'Executive', 'cpc': 'CPC' };
+    return map[cat] || cat;
+}
+
+function approveRegistration(id) {
+    const reg = AppData.registrations.find(function(r) { return r.id === id; });
+    if (reg) {
+        reg.status = 'confirmed';
+        reg.regNo = 'NS' + AppData.nextRegNo;
+        AppData.nextRegNo++;
+        saveData();
+        renderRegistrations();
+        updateDashboard();
+        showToast('Approved! Reg No: ' + reg.regNo, 'success');
+        currentSlipData = reg;
+        setTimeout(function() { showSlipPreview(reg); }, 500);
+    }
+}
+
+function deleteRegistration(id) {
+    if (confirm('Are you sure you want to delete this registration?')) {
+        AppData.registrations = AppData.registrations.filter(function(r) { return r.id !== id; });
+        saveData();
+        renderRegistrations();
+        updateDashboard();
+        showToast('Registration deleted', 'success');
+    }
+}
+
+function viewSlip(id) {
+    const reg = AppData.registrations.find(function(r) { return r.id === id; });
+    if (reg) {
+        currentSlipData = reg;
+        showSlipPreview(reg);
+    }
+}
+
+// ==================== SLIP GENERATION ====================
+let currentSlipData = null;
+
+function showSlipPreview(reg) {
+    const modal = document.getElementById('slipModal');
+    const preview = document.getElementById('slipPreview');
+    const categoryLabel = formatCategory(reg.category);
+    const amount = reg.category === 'student' ? '₦10,500' : 
+                   reg.category === 'professional' ? '₦15,500' : 
+                   reg.category === 'non-professional' ? '₦20,500' : 'EXEMPT';
+    const officeDisplay = reg.office ? '<div style="color:var(--orange);font-weight:700">Office: ' + reg.office + '</div>' : '';
+
+    preview.innerHTML = '<div class="slip-header">13TH ANNUAL CONFERENCE/CONVENTION - AKURE 2026</div>' +
+        '<div style="font-size:12px;color:var(--gray-500);margin-bottom:12px">NAHIMS Southwest Zone</div>' +
+        '<img src="' + (reg.photo || '') + '" class="slip-photo" style="' + (reg.photo ? '' : 'display:none') + '">' +
+        '<div class="slip-regno">' + (reg.regNo || 'PENDING') + '</div>' +
+        '<div class="slip-name">' + reg.name + '</div>' +
+        '<div class="slip-school">' + reg.school + '</div>' + officeDisplay +
+        '<div class="slip-details"><div class="slip-detail"><div class="slip-detail-label">Department</div><div class="slip-detail-value">' + reg.dept + '</div></div>' +
+        '<div class="slip-detail"><div class="slip-detail-label">Level</div><div class="slip-detail-value">' + reg.level + '</div></div>' +
+        '<div class="slip-detail"><div class="slip-detail-label">Category</div><div class="slip-detail-value">' + categoryLabel + '</div></div>' +
+        '<div class="slip-detail"><div class="slip-detail-label">Amount</div><div class="slip-detail-value">' + amount + '</div></div></div>' +
+        '<div style="margin-top:16px;padding-top:16px;border-top:1px dashed var(--gray-300)">' +
+        '<div id="qrcode" style="margin:0 auto;width:100px;height:100px"></div>' +
+        '<div style="font-size:10px;color:var(--gray-400);margin-top:8px">Scan to verify</div></div>' +
+        '<div style="margin-top:12px;font-size:11px;color:var(--red);font-weight:700;border:2px solid var(--red);padding:8px;border-radius:8px">NOT VALID WITHOUT QR VERIFICATION</div>';
+
+    setTimeout(function() {
+        const qrContainer = document.getElementById('qrcode');
+        if (qrContainer && reg.regNo && typeof QRCode !== 'undefined') {
+            qrContainer.innerHTML = '';
+            new QRCode(qrContainer, {
+                text: 'https://akure2026.kimi.ai/verify/' + reg.regNo,
+                width: 100,
+                height: 100,
+                colorDark: '#006400',
+                colorLight: '#ffffff'
+            });
+        }
+    }, 100);
+    modal.classList.add('show');
+}
+
+function downloadCurrentSlip() {
+    if (!currentSlipData) return;
+    generateSlipPDF(currentSlipData);
+}
+
+function generateSlipPDF(reg) {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ format: [148, 210], unit: 'mm' });
+    doc.setFillColor(248, 250, 248);
+    doc.rect(0, 0, 148, 210, 'F');
+    doc.setDrawColor(0, 100, 0);
+    doc.setLineWidth(1);
+    doc.rect(5, 5, 138, 200);
+    doc.setDrawColor(212, 175, 55);
+    doc.setLineWidth(0.5);
+    doc.rect(7, 7, 134, 196);
+    doc.setFillColor(0, 100, 0);
+    doc.rect(5, 5, 138, 25, 'F');
+    doc.setTextColor(212, 175, 55);
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'bold');
+    doc.text('NAHIMS SOUTHWEST', 74, 15, { align: 'center' });
+    doc.setFontSize(10);
+    doc.text('13TH ANNUAL SCIENTIFIC CONFERENCE/CONVENTION', 74, 21, { align: 'center' });
+    doc.setFontSize(8);
+    doc.text('AKURE 2026', 74, 26, { align: 'center' });
+    doc.setTextColor(0, 100, 0);
+    doc.setFontSize(24);
+    doc.setFont('courier', 'bold');
+    doc.text(reg.regNo || 'PENDING', 74, 45, { align: 'center' });
+    if (reg.photo && reg.photo.startsWith('data:image')) {
+        try {
+            doc.addImage(reg.photo, 'JPEG', 54, 50, 40, 40);
+            doc.setTextColor(200, 200, 200);
+            doc.setFontSize(20);
+            doc.setFont('helvetica', 'bold');
+            doc.text('AKURE 2026', 74, 72, { align: 'center' });
+        } catch(e) {}
+    }
+    doc.setTextColor(50, 50, 50);
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'bold');
+    doc.text(reg.name, 74, 100, { align: 'center' });
+    doc.setFontSize(9);
+    doc.setFont('helvetica', 'normal');
+    doc.text(reg.school, 74, 107, { align: 'center' });
+    doc.text(reg.dept + ' | ' + reg.level, 74, 113, { align: 'center' });
+    if (reg.office) {
+        doc.setTextColor(255, 140, 0);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Office: ' + reg.office, 74, 120, { align: 'center' });
+    }
+    doc.setTextColor(50, 50, 50);
+    doc.setFontSize(10);
+    const catLabel = formatCategory(reg.category);
+    const amount = reg.category === 'student' ? '₦10,500' : 
+                   reg.category === 'professional' ? '₦15,500' : 
+                   reg.category === 'non-professional' ? '₦20,500' : 'EXECUTIVE EXEMPT';
+    doc.text('Category: ' + catLabel, 74, 130, { align: 'center' });
+    doc.text('Amount: ' + amount, 74, 136, { align: 'center' });
+    doc.setDrawColor(200, 200, 200);
+    doc.rect(54, 145, 40, 40);
+    doc.setFontSize(8);
+    doc.setTextColor(150, 150, 150);
+    doc.text('QR VERIFICATION', 74, 165, { align: 'center' });
+    doc.text('verify/' + (reg.regNo || ''), 74, 170, { align: 'center' });
+    doc.setTextColor(200, 0, 0);
+    doc.setFontSize(8);
+    doc.setFont('helvetica', 'bold');
+    doc.text('NOT VALID WITHOUT QR VERIFICATION', 74, 195, { align: 'center' });
+    doc.setTextColor(50, 50, 50);
+    doc.setFontSize(8);
+    doc.text('Authorized by:', 74, 200, { align: 'center' });
+    doc.setFont('helvetica', 'bold');
+    doc.text('Comr. Ajayi Abiodun Greatness', 74, 205, { align: 'center' });
+    doc.setFont('helvetica', 'normal');
+    doc.text('NAHIMS Southwest President', 74, 210, { align: 'center' });
+    doc.save('Registration_Slip_' + (reg.regNo || 'PENDING') + '_' + reg.name.replace(/\s+/g, '_') + '.pdf');
+    showToast('Slip downloaded!', 'success');
+}
+
+// ==================== SCHOOLS ====================
+function renderSchools() {
+    const container = document.getElementById('schoolsList');
+    if (AppData.schools.length === 0) {
+        container.innerHTML = '<div class="empty-state"><div class="empty-icon">🏫</div><div class="empty-title">No schools registered</div></div>';
+        return;
+    }
+    container.innerHTML = AppData.schools.map(function(s, i) {
+        return '<div class="school-item"><div class="school-info"><h4>' + s.name + '</h4><p>President: ' + s.president + ' • ' + s.phone + '</p><p style="font-size:11px;color:var(--gray-400)">Cert: ' + (s.certNo || 'Pending') + '</p></div>' +
+            '<div class="school-stats">' + (s.certNo ? '<button class="action-btn view" onclick="downloadSchoolCert(' + i + ')">Certificate</button>' : '<span class="status-badge status-pending">Pending</span>') + '</div></div>';
+    }).join('');
+}
+
+function downloadSchoolCert(index) {
+    const school = AppData.schools[index];
+    if (school) generateSchoolCertPDF(school);
+}
+
+function generateSchoolCertPDF(school) {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF('portrait', 'mm', 'a4');
+    doc.setFillColor(255, 255, 255);
+    doc.rect(0, 0, 210, 297, 'F');
+    doc.setDrawColor(0, 100, 0);
+    doc.setLineWidth(2);
+    doc.rect(10, 10, 190, 277);
+    doc.setDrawColor(212, 175, 55);
+    doc.setLineWidth(1);
+    doc.rect(15, 15, 180, 267);
+    doc.setFillColor(0, 100, 0);
+    doc.rect(15, 15, 180, 30, 'F');
+    doc.setTextColor(212, 175, 55);
+    doc.setFontSize(16);
+    doc.setFont('helvetica', 'bold');
+    doc.text('NATIONAL ASSOCIATION OF HEALTH INFORMATION', 105, 28, { align: 'center' });
+    doc.text('MANAGEMENT STUDENTS (NAHIMS)', 105, 35, { align: 'center' });
+    doc.setFontSize(10);
+    doc.text('SOUTHWEST ZONE', 105, 42, { align: 'center' });
+    doc.setTextColor(0, 100, 0);
+    doc.setFontSize(28);
+    doc.setFont('helvetica', 'bold');
+    doc.text('CERTIFICATE OF REGISTRATION', 105, 70, { align: 'center' });
+    doc.setDrawColor(212, 175, 55);
+    doc.setLineWidth(1);
+    doc.line(40, 75, 170, 75);
+    doc.setTextColor(50, 50, 50);
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'normal');
+    doc.text('This is to certify that', 105, 95, { align: 'center' });
+    doc.setFontSize(18);
+    doc.setFont('helvetica', 'bold');
+    doc.setTextColor(0, 100, 0);
+    doc.text(school.name.toUpperCase(), 105, 110, { align: 'center' });
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(50, 50, 50);
+    const bodyText = 'is a duly registered Chapter of the National Association of Health Information Management Students (NAHIMS), Southwest Zone, recognized and approved to participate in all zonal activities, conferences, and conventions.';
+    const splitText = doc.splitTextToSize(bodyText, 150);
+    doc.text(splitText, 105, 125, { align: 'center' });
+    doc.setFontSize(11);
+    doc.text('Chapter President: ' + school.president, 105, 155, { align: 'center' });
+    doc.text('Certificate Number: ' + school.certNo, 105, 163, { align: 'center' });
+    doc.text('Date of Issue: ' + new Date().toLocaleDateString('en-NG'), 105, 171, { align: 'center' });
+    doc.setDrawColor(200, 200, 200);
+    doc.rect(85, 180, 40, 40);
+    doc.setFontSize(8);
+    doc.setTextColor(150, 150, 150);
+    doc.text('QR VERIFICATION', 105, 202, { align: 'center' });
+    doc.setDrawColor(50, 50, 50);
+    doc.line(50, 240, 100, 240);
+    doc.setFontSize(10);
+    doc.setTextColor(50, 50, 50);
+    doc.text('Comr. Ajayi Abiodun Greatness', 75, 248, { align: 'center' });
+    doc.setFontSize(9);
+    doc.text('NAHIMS Southwest President', 75, 254, { align: 'center' });
+    doc.line(120, 240, 170, 240);
+    doc.text('MRS CHAMPION AFOLAYAN', 145, 248, { align: 'center' });
+    doc.setFontSize(9);
+    doc.text('HROBRN Southwest Coordinator', 145, 254, { align: 'center' });
+    doc.setFillColor(0, 100, 0);
+    doc.rect(15, 270, 180, 12, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(9);
+    doc.text('AKURE 2026 | 13TH ANNUAL SCIENTIFIC CONFERENCE/CONVENTION', 105, 278, { align: 'center' });
+    doc.save('School_Certificate_' + school.certNo.replace(/\//g, '_') + '.pdf');
+    showToast('Certificate downloaded!', 'success');
+}
+
+// ==================== REPORTS ====================
+function downloadFullReport() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF('landscape', 'mm', 'a4');
+    doc.setFillColor(0, 100, 0);
+    doc.rect(0, 0, 297, 25, 'F');
+    doc.setTextColor(212, 175, 55);
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'bold');
+    doc.text('NAHIMS SOUTHWEST - AKURE 2026 CONVENTION', 148.5, 12, { align: 'center' });
+    doc.setFontSize(10);
+    doc.text('Complete Registration Report', 148.5, 20, { align: 'center' });
+    const headers = ['Reg No', 'Name', 'School', 'Dept', 'Level', 'Phone', 'Category', 'Status'];
+    const data = AppData.registrations.map(function(r) {
+        return [r.regNo || 'Pending', r.name, r.school, r.dept, r.level, r.phone, formatCategory(r.category), r.status.toUpperCase()];
+    });
+    let y = 40;
+    doc.setFontSize(9);
+    doc.setTextColor(50, 50, 50);
+    doc.setFont('helvetica', 'bold');
+    headers.forEach(function(h, i) {
+        doc.text(h, 15 + (i * 34), y);
+    });
+    y += 10;
+    doc.setFont('helvetica', 'normal');
+    data.forEach(function(row, idx) {
+        if (y > 180) {
+            doc.addPage();
+            y = 20;
+        }
+        if (idx % 2 === 0) {
+            doc.setFillColor(248, 248, 248);
+            doc.rect(10, y - 5, 277, 7, 'F');
+        }
+        row.forEach(function(cell, i) {
+            doc.text(String(cell).substring(0, 20), 15 + (i * 34), y);
+        });
+        y += 8;
+    });
+    const total = AppData.registrations.length;
+    const confirmed = AppData.registrations.filter(function(r) { return r.status === 'confirmed'; }).length;
+    let income = 0;
+    AppData.registrations.forEach(function(r) {
+        if (r.status === 'confirmed' && r.paymentStatus === 'paid') {
+            if (r.category === 'student') income += 10500;
+            else if (r.category === 'professional') income += 15500;
+            else if (r.category === 'non-professional') income += 20500;
+        }
+    });
+    doc.setFont('helvetica', 'bold');
+    doc.text('Total: ' + total + ' | Confirmed: ' + confirmed + ' | Income: ₦' + income.toLocaleString(), 148.5, y + 10, { align: 'center' });
+    doc.save('NAHIMS_Akure2026_Full_Report_' + new Date().toISOString().split('T')[0] + '.pdf');
+    showToast('Full report downloaded!', 'success');
+}
+
+function generateSchoolReport() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF('portrait', 'mm', 'a4');
+    doc.setFillColor(0, 100, 0);
+    doc.rect(0, 0, 210, 25, 'F');
+    doc.setTextColor(212, 175, 55);
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'bold');
+    doc.text('NAHIMS SOUTHWEST - SCHOOL BREAKDOWN', 105, 12, { align: 'center' });
+    doc.setFontSize(10);
+    doc.text('AKURE 2026 CONVENTION', 105, 20, { align: 'center' });
+    const schoolStats = {};
+    AppData.registrations.forEach(function(r) {
+        if (!schoolStats[r.school]) schoolStats[r.school] = { count: 0, amount: 0 };
+        schoolStats[r.school].count++;
+        if (r.status === 'confirmed' && r.paymentStatus === 'paid') {
+            if (r.category === 'student') schoolStats[r.school].amount += 10500;
+            else if (r.category === 'professional') schoolStats[r.school].amount += 15500;
+            else if (r.category === 'non-professional') schoolStats[r.school].amount += 20500;
+        }
+    });
+    let y = 40;
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'bold');
+    doc.text('School', 15, y);
+    doc.text('Count', 120, y);
+    doc.text('Amount', 160, y);
+    y += 10;
+    doc.setFont('helvetica', 'normal');
+    Object.entries(schoolStats).forEach(function([school, stats], idx) {
+        if (y > 270) {
+            doc.addPage();
+            y = 20;
+        }
+        if (idx % 2 === 0) {
+            doc.setFillColor(248, 248, 248);
+            doc.rect(10, y - 5, 190, 8, 'F');
+        }
+        doc.text(school.substring(0, 35), 15, y);
+        doc.text(String(stats.count), 125, y);
+        doc.text('₦' + stats.amount.toLocaleString(), 160, y);
+        y += 10;
+    });
+    doc.save('NAHIMS_School_Breakdown_' + new Date().toISOString().split('T')[0] + '.pdf');
+    showToast('School report downloaded!', 'success');
+}
+
+function exportToJSON() {
+    const data = JSON.stringify(AppData, null, 2);
+    const blob = new Blob([data], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'nahims_backup_' + new Date().toISOString().split('T')[0] + '.json';
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('Data exported!', 'success');
+}
+
+function importFromJSON(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        try {
+            const data = JSON.parse(event.target.result);
+            if (data.registrations) AppData.registrations = data.registrations;
+            if (data.schools) AppData.schools = data.schools;
+            if (data.nextRegNo) AppData.nextRegNo = data.nextRegNo;
+            if (data.nextSchoolCert) AppData.nextSchoolCert = data.nextSchoolCert;
+            saveData();
+            updateDashboard();
+            showToast('Data imported successfully!', 'success');
+        } catch (err) {
+            showToast('Invalid backup file', 'error');
+        }
+    };
+    reader.readAsText(file);
+}
+
+function clearAllData() {
+    if (confirm('WARNING: This will delete ALL data. Are you sure?')) {
+        AppData.registrations = [];
+        AppData.schools = [];
+        AppData.nextRegNo = 100;
+        AppData.nextSchoolCert = 1;
+        saveData();
+        updateDashboard();
+        showToast('All data cleared', 'success');
+    }
+}
+
+// ==================== QR VERIFICATION ====================
+function handleVerification() {
+    const hash = window.location.hash;
+    const match = hash.match(/\/verify\/(NS\d+)/);
+    if (match) {
+        const regNo = match[1];
+        const reg = AppData.registrations.find(function(r) { return r.regNo === regNo; });
+        showPage('verifyPage');
+        const statusEl = document.getElementById('verifyStatus');
+        const titleEl = document.getElementById('verifyTitle');
+        const msgEl = document.getElementById('verifyMessage');
+        const detailsEl = document.getElementById('verifyDetails');
+        if (reg && reg.status === 'confirmed') {
+            statusEl.textContent = '✅';
+            statusEl.className = 'verify-status valid';
+            titleEl.textContent = 'VALID REGISTRATION';
+            titleEl.className = 'verify-title valid';
+            msgEl.textContent = 'This registration is confirmed and valid.';
+            document.getElementById('verifyPhoto').src = reg.photo || '';
+            document.getElementById('verifyName').textContent = reg.name;
+            document.getElementById('verifySchool').textContent = reg.school;
+            document.getElementById('verifyRegNo').textContent = reg.regNo;
+            document.getElementById('verifyCategory').textContent = formatCategory(reg.category);
+            detailsEl.style.display = 'block';
+        } else {
+            statusEl.textContent = '❌';
+            statusEl.className = 'verify-status invalid';
+            titleEl.textContent = 'INVALID REGISTRATION';
+            titleEl.className = 'verify-title invalid';
+            msgEl.textContent = 'This registration number was not found or is not confirmed.';
+            detailsEl.style.display = 'none';
+        }
+    }
+}
+
+// ==================== UI HELPERS ====================
+function showModal(id) {
+    document.getElementById(id).classList.add('show');
+}
+
+function closeModal(id) {
+    document.getElementById(id).classList.remove('show');
+}
+
+function showLoading(show) {
+    document.getElementById('loadingOverlay').classList.toggle('show', show);
+}
+
+function showToast(message, type) {
+    const container = document.getElementById('toastContainer');
+    const toast = document.createElement('div');
+    toast.className = 'toast ' + type;
+    toast.innerHTML = '<span>' + (type === 'success' ? '✅' : type === 'error' ? '❌' : 'ℹ️') + '</span> ' + message;
+    container.appendChild(toast);
+    setTimeout(function() {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(100%)';
+        setTimeout(function() { toast.remove(); }, 300);
+    }, 3000);
+}
+
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(function() {
+        showToast('Copied to clipboard!', 'success');
+    });
+}
+
+// ==================== INIT ====================
+window.addEventListener('hashchange', handleVerification);
+window.addEventListener('load', function() {
+    initData();
+    handleVerification();
+    updateCountdown();
+    if (window.location.hash.includes('/verify/')) {
+        handleVerification();
+    }
+});
+</script>
+</body>
+</html>
